@@ -1,0 +1,53 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/comment/submit": {
+            "post": {
+                "tags": [
+                    "comment"
+                ],
+                "summary": "Add a new comment",
+                "description": "By using this api endpoint you can add a new comment per tweets",
+                "operationId": "submitComment",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "Text values using as comment contents",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "a new test comment",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                },
+                "deprecated": false,
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
